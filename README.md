@@ -1,8 +1,5 @@
 # hard
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![Downloads][downloads-image]][downloads-url]
+[![experimental][stability-image]][stability-url]
 
 ## Installation
 ```bash
@@ -25,14 +22,10 @@ $ npm install akileez\hard
 ## See Also
 -
 
-## License
-[MIT](https://tldrlegal.com/license/mit-license)
+## License [![ISC license][license-img]][license-url]
+[ISC](https://tldrlegal.com/license/-isc-license)
 
-[npm-image]: https://img.shields.io/npm/v/hard.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/hard
-[travis-image]: https://img.shields.io/travis/akileez/hard.svg?style=flat-square
-[travis-url]: https://travis-ci.org/akileez/hard
-[coveralls-image]: https://img.shields.io/coveralls/akileez/hard.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/akileez/hard?branch=master
-[downloads-image]: http://img.shields.io/npm/dm/hard.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/hard
+[stability-image]: https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square
+[stability-url]: https://github.com/akileez/hard
+[license-img]: https://img.shields.io/badge/license-ISC-blue.svg?style=flat-square
+[license-url]: https://github.com/akileez/npinit/blob/master/license.md
