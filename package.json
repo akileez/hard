@@ -1,0 +1,38 @@
+{
+  "name": "hard",
+  "version": "0.1.0",
+  "description": "Handlebars assemble readme documentation",
+  "main": "index.js",
+  "scripts": {
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akileez/hard.git"
+  },
+  "author": {
+    "name": "Keith Williams",
+    "email": "git@keeda.net",
+    "url": "http://yourURL.com"
+  },
+  "homepage": "https://github.com/akileez/hard",
+  "bugs": {
+    "url": "https://github.com/akileez/hard/issues"
+  },
+  "license": {
+    "type": "ISC",
+    "url": "https://github.com/akileez/hard/blob/master/LICENSE"
+  },
+  "keywords": [],
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "files": [
+    "LICENSE",
+    "index.js",
+    "README.md"
+  ]
+}
