@@ -10,11 +10,11 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 const assemble = require('assemble')
-const argv     = require('argh').argv
-const path     = require('path')
-const extend   = require('extend-basic')
-const glob     = require('../nodes/glob')
-const chalk    = require('../nodes/chalk')
+const argv = require('argh').argv
+const path = require('path')
+const extend = require('extend-basic')
+const glob = require('glob')
+const chalk = require('chalk')
 
 // Assemble Base Configuration
 // ///////////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ const mag = chalk.magenta
 
 if (argv.argv === undefined) argv.argv = 'default'
 
-console.log('');
+console.log('')
 console.log(blu(new Date().toLocaleString()))
 console.log('')
 console.log(blk('---------------------------------------'))
@@ -75,5 +75,3 @@ console.log(grn('  BUILD_STAGE : '), mag(assemble.get('BUILD_STAGE')))
 console.log(grn('  RUNNING_JOB : '), mag(argv.argv))
 console.log(blk('---------------------------------------'))
 console.log('')
-
-

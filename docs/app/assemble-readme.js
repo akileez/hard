@@ -10,7 +10,7 @@
 // ///////////////////////////////////////////////////////////////////////////////
 
 var assemble = require('assemble')
-var extname  = require('gulp-extname')
+var extname = require('gulp-extname')
 
 // Assemble Readme Generation
 // ///////////////////////////////////////////////////////////////////////////////
@@ -20,6 +20,4 @@ assemble.task('generate', function () {
   .src('docs/layouts/templates/tmpl.hbs')
   .pipe(extname('md'))
   .pipe(assemble.dest('./'))
-});
-
-
+})
