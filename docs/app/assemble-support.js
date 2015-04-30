@@ -14,8 +14,15 @@ var del = require('del')
 
 // Delete files
 // ///////////////////////////////////////////////////////////////////////////////
-assemble.task('clean', function (cb) {
+assemble.task('clean:all', function (cb) {
   del([
-    './README.md'
+    './docs/test/README.md',
+    './docs/test/tmpl.md'
+  ], cb)
+})
+
+assemble.task('clean:up', function (cb) {
+  del([
+    './docs/test/tmpl.md'
   ], cb)
 })

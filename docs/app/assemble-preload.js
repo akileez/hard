@@ -70,5 +70,5 @@ assemble.task('loadConfig', function () {
 
 assemble.task('loadLayouts', function () {
   assemble.layouts('docs/layouts/{globals,regions}/*.hbs')
-  assemble.partials('docs/layouts/sectors/**/*.hbs')
+  assemble.partials('docs/layouts/sectors/*.hbs')
 })

@@ -23,4 +23,4 @@ require('./docs/app/assemble-support.js')  // copy/delete/rsync/gzip/revision
 // Assemble Jobs
 // ///////////////////////////////////////////////////////////////////////////////
 
-assemble.task('default', series.sync(['loadLayouts', 'generate']))
+assemble.task('default', series.sync(['loadLayouts', 'generate', 'rename', 'clean:up']))
