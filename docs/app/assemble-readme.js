@@ -46,10 +46,3 @@ assemble.task('generate3', function () {
   .pipe(rename('README.md'))
   .pipe(assemble.dest('docs/test'))
 })
-
-assemble.task('rename', function () {
-  return assemble
-  .src('docs/test/tmpl.md')
-  .pipe(rename('README.md'))
-  .pipe(assemble.dest('docs/test'))
-})

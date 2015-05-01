@@ -24,7 +24,7 @@ require('./docs/app/assemble-support.js')  // delete files
 // ///////////////////////////////////////////////////////////////////////////////
 
 // using this (default) as the workaround
-assemble.task('default', series.sync(['loadLayouts', 'generate', 'rename', 'clean:up']))
+assemble.task('default', series.sync(['loadLayouts', 'generate', 'rename']))
 
 // test1 using assemble.src --> gulp-rename -> assemble.dest -- template (tmpl.hbs) does not process
 // this used to work without issue.
