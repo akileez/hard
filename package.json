@@ -1,6 +1,6 @@
 {
   "name": "hard",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Handlebars assemble readme documentation",
   "main": "index.js",
   "scripts": {},
@@ -30,13 +30,18 @@
     "assemble": "^0.6.0-beta.5",
     "chalk": "^1.0.0",
     "cson": "^3.0.1",
+    "days": "^1.0.1",
     "del": "^1.1.1",
     "extend-basic": "^0.1.0",
     "glob": "^5.0.5",
     "gulp-extname": "^0.2.0",
     "gulp-sync": "^0.1.4",
     "handlebars": "^3.0.3",
-    "o-clock": "^0.1.0"
+    "month": "^1.0.0",
+    "months": "^1.0.0",
+    "o-clock": "^0.1.0",
+    "weekday": "^1.0.0",
+    "year": "^0.2.1"
   },
   "devDependencies": {},
   "files": [
