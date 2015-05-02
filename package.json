@@ -1,6 +1,6 @@
 {
   "name": "hard",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Handlebars assemble readme documentation",
   "main": "index.js",
   "scripts": {},
@@ -14,7 +14,7 @@
   "author": {
     "name": "Keith Williams",
     "email": "git@keeda.net",
-    "url": "http://yourURL.com"
+    "url": ""
   },
   "homepage": "https://github.com/akileez/hard",
   "bugs": {
@@ -35,7 +35,8 @@
     "glob": "^5.0.5",
     "gulp-extname": "^0.2.0",
     "gulp-sync": "^0.1.4",
-    "handlebars": "^3.0.3"
+    "handlebars": "^3.0.3",
+    "o-clock": "^0.1.0"
   },
   "devDependencies": {},
   "files": [
