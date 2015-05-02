@@ -1,9 +1,5 @@
-const days = require('days')
-const month = require('month')
-const months = require('months')
-const time = require('o-clock')
-const weekday = require('weekday')
-const year = require('year')
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 exports.now = function () {
   function monthOfYear (val, idx, arr) {
@@ -14,27 +10,32 @@ exports.now = function () {
     if (idx === thisday) return val
   }
 
-  var thisday = weekday()
-  var thismonth = month()
+  var thisday = new Date().getDay()
+  var thismonth = new Date().getMonth()
   var day = new Date().getDate()
   var year = new Date().getFullYear()
-  var ts = time('HH:mm:ss')
   var dow = days.filter(dayOfWeek)
   var mon = months.filter(monthOfYear)
 
-  // i.e., Saturday, May 2 2015 at 9:07 AM
+  var hours = new Date().getHours()
+  var mins = new Date().getMinutes()
+  if (hours < 12) var meridiem = ' AM'
+  else var meridiem = ' PM'
+  var ts = [hours, mins].join(':') + meridiem
+
+    // i.e., Saturday, May 2 2015 at 9:07 AM
   return dow + ', ' + mon + ' ' + day + ' ' + year + ' at ' + ts
 }
 
 exports.weekday = function () {
-  var day = weekday()
+  var day = new Date().getDay()
   function dayOfWeek (val, idx, arr) {
     if (idx === day) return val
   }
   return days.filter(dayOfWeek)
 }
 
-exports.thismonth = function () {
+exports.month = function () {
   var mon = month()
   function monthOfYear (val, idx, arr) {
     if (idx === Month) return val
@@ -53,6 +54,18 @@ exports.year = function (strtyr) {
   return date
 }
 
-exports.time = function () {
-  return time('HH:mm:ss')
+exports.time = function (frmt) {
+  var hours = new Date().getHours()
+  var mins = new Date().getMinutes()
+  var secs = new Date().getSeconds()
+  if (hours < 12) var meridiem = ' AM'
+  else var meridiem = ' PM'
+
+  switch (frmt) {
+    case 'now' : return  Date.now(); break;
+    case 'iso' : return new Date().toLocaleString(); break;
+    default : break;
+  }
+
+  return [hours, mins].join(':') + meridiem
 }
