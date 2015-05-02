@@ -20,14 +20,3 @@ exports.copyright = function (date) {
   if (typeof date === 'string') return 'Copyright (c) ' + date
   return 'Copyright (c)'
 }
-
-exports.year = function (startYear) {
-  if (typeof startYear === 'object') startYear = ''
-  var thisyear = new Date().getFullYear().toString() + ' '
-  var date = startYear ? startYear + '-' + thisyear : thisyear
-  return date
-}
-
-exports.time = function () {
-  return time()
-}
