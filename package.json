@@ -1,6 +1,6 @@
 {
   "name": "hard",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Handlebars assemble readme documentation",
   "main": "index.js",
   "scripts": {},
