@@ -1,6 +1,5 @@
 var path = require('path')
 var extend = require('extend-basic')
-var time = require('o-clock')
 
 var config = require(path.resolve(process.cwd(), 'package.json'))
 
