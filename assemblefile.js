@@ -23,6 +23,6 @@ require('./docs/app/assemble-support.js')  // delete files
 // Assemble Jobs
 // ///////////////////////////////////////////////////////////////////////////////
 
-assemble.task('default', series.sync(['loadLayouts', 'generate', 'rename']))
+assemble.task('default', series.sync(['loadManifests', 'loadLayouts', 'generate', 'rename']))
 
 assemble.task('clean', series.sync(['clean:all']))

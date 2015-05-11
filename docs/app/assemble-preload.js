@@ -36,14 +36,17 @@ function ftree (filenames) {
 // opposed to {{img 'assets/img/dir/to/phone.png'}}
 assemble.task('loadManifests', function () {
   var globmod = glob.sync('docs/modules/**/*.hbs')
+  var globtmpl = glob.sync('docs/layouts/**/*.hbs')
 
   var fmo = {}
+  var ftp = {}
 
   // here I am namespacing the separate globs as if
   // they are individual json files loaded via assemble.data
   fmo['mo'] = ftree(globmod) // JSON.parse(ftree(globmod));
+  ftp['tmpls'] = ftree(globtmpl)
 
-  assemble.data([fmo])
+  assemble.data([fmo, ftp])
   // console.log(fmodule, fjs, fcss);
 })
 

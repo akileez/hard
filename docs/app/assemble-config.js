@@ -21,7 +21,7 @@ const chalk = require('chalk')
 
 // assemble.option('assets', 'assets')
 assemble.option('layoutDelims', ['{{=', '}}'])
-// assemble.enable('perferLocals')
+assemble.enable('perferLocals')
 // assemble.enable('debug')
 // assemble.disable('src:drafts plugin')
 
