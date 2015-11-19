@@ -1,6 +1,6 @@
 {
   "name": "hard",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "HAndlebars Rendr Documents",
   "main": "index.js",
   "scripts": {},
@@ -30,8 +30,7 @@
   "devDependencies": {},
   "files": [
     "LICENSE",
-    "assemblefile.js",
     "README.md",
-    "docs"
+    "app"
   ]
 }
