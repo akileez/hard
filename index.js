@@ -103,10 +103,9 @@ function Rendr (initialConfig) {
     var opsRendr = [
       register,
       configContext,
-      loadTemplates,
-      buildFileTree,
       pageMap,
       layoutStack,
+      loadTemplates,
       rendrTemplates,
       watch
     ]
@@ -158,6 +157,8 @@ function Rendr (initialConfig) {
     })
   }
 
+  // [CONFIG] Set Global Configuration Object (template context)
+  // /////////////////////////////////////////////////
   function configContext (cb) {
     iterate.each(globby.sync(opts.get('context')), function (val, key, done) {
       parsefm(val, function (err, res) {
@@ -171,6 +172,34 @@ function Rendr (initialConfig) {
       cb(null, 'reData')
     })
   }
+
+  // Map modules/pages to cache. Helpers read from cache as opposed to
+  // reading from disk during render time.
+  function pageMap (cb) {
+    iterate.each(globby.sync(opts.get('modules')), function (val, key, done) {
+      page.set(readFile(val, true))
+      done(null, key)
+    }, function (err, res) {
+      assert.ifError(err)
+      config.set('_', page.get())
+      cb(null, 'pageMap')
+    })
+  }
+
+  // [STACK] Set Stack (template layouts)
+  // /////////////////////////////////////////////////
+
+  // Build the layout stack
+  function layoutStack (cb) {
+    // stack.del()
+    buildLayoutStack(globby.sync(opts.get('layouts')), false, function (err, res) {
+      stack.set(res)
+      cb(null, 'refresh')
+    })
+  }
+
+  // [MAP] Set the File Map (template views)
+  // /////////////////////////////////////////////////
 
   // Normalized file object of Template Views and Sources
   // Map frontMatter (YAML) to normalized object for each template
@@ -203,53 +232,8 @@ function Rendr (initialConfig) {
     })
   }
 
-  // Generated a filepath object of static assets and attach to global data (`this`).
-  // helpers use this object for lookup, navigation and relative path calculation.
-  function buildFileTree (cb) {
-    var items = {
-      // glob of filenames and namespace for ftree
-      templates : 'tmpls', // just for testing. remove later
-      // modules   : '_',
-      css       : 'css',
-      js        : 'js',
-      code      : 'code',
-      ico       : 'ico',
-      img       : 'img',
-      pdf       : 'pdf'
-    }
-
-    iterate.each(items, function (val, key, done) {
-      ftree(globby.sync(opts.get(key)), val, function (err, res) {
-        config.set(res)
-        done(null, key)
-      })
-    }, function (err, res) {
-      assert.ifError(err)
-      cb(null, 'ftree')
-    })
-  }
-
-  // Map modules/pages to cache. Helpers read from cache as opposed to
-  // reading from disk during render time.
-  function pageMap (cb) {
-    iterate.each(globby.sync(opts.get('modules')), function (val, key, done) {
-      page.set(readFile(val, true))
-      done(null, key)
-    }, function (err, res) {
-      assert.ifError(err)
-      config.set('_', page.get())
-      cb(null, 'pageMap')
-    })
-  }
-
-  // Build the layout stack
-  function layoutStack (cb) {
-    // stack.del()
-    buildLayoutStack(globby.sync(opts.get('layouts')), false, function (err, res) {
-      stack.set(res)
-      cb(null, 'refresh')
-    })
-  }
+  // Rendr
+  // /////////////////////////////////////////////////
 
   // Rendr templates using caches
   // map    -- normalized template/source object
