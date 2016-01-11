@@ -14,16 +14,12 @@
 
 'use strict'
 
-var argv             = require('argh').argv
-var resolve          = require('resolve')
-var handlebars       = require('handlebars')
-var globby           = require('./app/src/globby')
-var registrar        = require('./app/src/registrarHandlebars')
-var rendr            = require('./app/rendr').rendr
-var matter           = require('./app/rendr').matter
-var buildLayoutStack = require('./app/rendr').buildLayoutStack
-var readFile         = require('./app/rendr').readFile
-var Config           = require('toolz/src/cache/cfg')
+var argv             = require('toolz/src/util/argh').argv
+var resolve          = require('toolz/src/path/resolve')
+var handlebars       = require('toolz/src/helper/handlebars')
+var globby           = require('toolz/src/glob/globby')
+var registrar        = require('toolz/src/helper/registrarHandlebars')
+var Config           = require('toolz/src/cache/methos2')
 var iterate          = require('toolz/src/async/iterate')
 var concurrent       = require('toolz/src/async/concurrent')
 var contains         = require('toolz/src/array/contains')
@@ -33,19 +29,23 @@ var keys             = require('toolz/src/object/keys')
 var values           = require('toolz/src/object/values')
 var union            = require('toolz/src/array/union')
 var wrap             = require('toolz/src/async/wrap')
+var jcolz            = require('toolz/src/util/jcolorz')
+var parsefm          = require('toolz/src/yaml/parsefm')
+var rendr            = require('./app/rendr').rendr
+var matter           = require('./app/rendr').matter
+var buildLayoutStack = require('./app/rendr').buildLayoutStack
+var readFile         = require('./app/rendr').readFile
 var getBaseDir       = require('./app/util/getBaseDir')
 var logger           = require('./app/util/logger')
 var ftree            = require('./app/util/fileTree')
-var jcolz            = require('json-colorz')
-var parsefm          = require('parse-yuf')
 var path             = require('path')
 var assert           = require('assert')
 
-var config           = new Config()
-var opts             = new Config()
-var stack            = new Config()
-var map              = new Config()
-var page             = new Config()
+var config           = Config()
+var opts             = Config()
+var stack            = Config()
+var map              = Config()
+var page             = Config()
 
 var registrarhbs     = wrap(registrar)
 
