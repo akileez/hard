@@ -1,6 +1,6 @@
 {
   "name": "hard",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "HAndlebars Rendr Documents",
   "main": "index.js",
   "scripts": {},
@@ -23,9 +23,7 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
-    "argh": "^0.1.4",
-    "glob": "^5.0.14",
-    "handlebars": "^4.0.2"
+    "toolz": "github:akileez/toolz"
   },
   "devDependencies": {},
   "files": [
