@@ -37,7 +37,6 @@ var buildLayoutStack = require('./app/rendr').buildLayoutStack
 var readFile         = require('./app/rendr').readFile
 var getBaseDir       = require('./app/util/getBaseDir')
 var logger           = require('./app/util/logger')
-var ftree            = require('./app/util/fileTree')
 var path             = require('path')
 var assert           = require('assert')
 
